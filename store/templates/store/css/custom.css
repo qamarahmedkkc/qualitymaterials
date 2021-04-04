@@ -1,0 +1,9 @@
+.big{
+    background-image: url('../store/images/signup.jpg');
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+}

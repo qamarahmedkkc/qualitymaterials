@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% load static %}
+
+<div class="container mt-4 bg-inf">
+    
+    <div class="p-4 m-4 bg-">
+
+        
+        <div class="col-lg-5 rounded mx-auto border pt-4 " style="background-color: #0008">
+            <div class="text-center col">
+            
+                <img 
+                src="{% static 'signup.png' %}" alt=""
+                class="" style="height: 150px;">
+            <!-- <hr> -->
+            <div class="display-8 text-white">Create An Account</div>
+            <hr>
+            </div>
+            <h3 hidden class="alert alert-light border rounded">Create An Account</h3>
+            <form action="/signup" method="POST">
+                
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!-- firstname -->
+                <div class="form-group text-white">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstname"
+                     id="" value="{{values.first_name}}" class="form-control form-control-sm text-dark bg-white" 
+                     placeholder="">
+                </div>
+
+                <!-- last name -->
+                <div class="form-group text-white">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname" 
+                    id="" value="{{values.last_name}}" class="form-control form-control-sm text-dark bg-white"
+                    >
+                </div>
+
+                <!-- phone -->
+                <div class="form-group text-white">
+                    <label for="">Phone</label>
+                    <input type="text" name="phone" 
+                    id="" class="form-control form-control-sm text-dark bg-white"
+                    value="{{values.phone}}"
+                    >
+                </div>
+                <!-- email -->
+                <div class="form-group text-white">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}" 
+                    class=" form-control-sm form-control text-dark bg-white" placeholder="example@gmail.com">
+                </div>
+
+
+                <!-- password -->
+                <div class="form-group text-white">
+                    <label for="">Password</label>
+                    <input type="password" 
+                    name="password" 
+                    id=""
+                     class="form-control form-control-sm text-dark bg-white">
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <input class="btn btn-sm btn-success col-lg-12" type="submit" value="Create An Account ">
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
